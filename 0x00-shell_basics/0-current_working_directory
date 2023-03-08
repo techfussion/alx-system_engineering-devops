@@ -1,0 +1,8 @@
+0-current_working_directory
+#!/bin/bash
+
+
+DIR_PATH=$(cd $(dirname “${BASH_SOURCE:-$0}”) && pwd)
+FULL_PATH=$DIR_PATH/$(basename "${BASH_SOURCE:-$0}")
+
+echo $FULL_PATH
