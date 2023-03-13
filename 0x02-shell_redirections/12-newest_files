@@ -1,0 +1,2 @@
+#!/bin/bash
+ls . -AtN | tail -10
