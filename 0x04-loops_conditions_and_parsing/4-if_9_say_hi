@@ -4,7 +4,6 @@
 loopCount=0
 while [ $loopCount -lt 10 ]; do
 	if [ $loopCount -eq 9 ]; then
-		echo "Best School"
 		echo "Hi"
 	fi
 		echo "Best School"
