@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Bash script that displays Best School 10 times, but for the 9th iteration, displays Best School and then Hi on a new line
+
+loopCount=0
+while [ $loopCount -lt 10 ]; do
+	if [ $loopCount -eq 9 ]; then
+		echo "Best School"
+		echo "Hi"
+	fi
+		echo "Best School"
+	loopCount=$((loopCount + 1))
+done
