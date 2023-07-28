@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that displays "Best School" 10 times using loop until
+
+loopCount=0
+until [ $loopCount -eq 10 ]; do
+	echo "Best School"
+	loopCount=$((loopCount + 1))
+done
