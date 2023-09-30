@@ -1,2 +1,3 @@
-#!/bin/bash
+#!/bin/env bash
+#Bash script that print the pid of bash
 pgrep bash
