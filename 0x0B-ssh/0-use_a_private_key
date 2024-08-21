@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
+# use ssh to connect to a server using a private key with the user ubuntu
 
-SERVER_ADDRESS=100.25.138.29
-
-ssh-copy-id -i ~/.ssh/shcool ubuntu@$SERVER_ADDRESS
-
-ssh -i ~/.ssh/school ubuntu@$SERVER_ADDRESS
+ssh-copy-id -i ~/.ssh/shcool ubuntu@100.25.138.29
+ssh -i ~/.ssh/school ubuntu@100.25.138.29
