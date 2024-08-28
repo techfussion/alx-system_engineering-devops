@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# create a file with my pid
+sudo bash -c "echo $$ > /var/run/myscript.pid"
+# remove the file and exit
+trap "sudo rm -f /var/run/myscript.pid; exit" SIGQUIT
+# remove the file, print i hate the kill command and exit
+trap "sudo rm -f /var/run/myscript.pid; echo I hate the kill command; exit" SIGTERM
+trap "echo Y U no love me?!" SIGINT
+# Keep printing "To infinity and beyond" indefinitely
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done

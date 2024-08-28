@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# This script manages manage_my_process
+argv=$1
+file="/var/run/my_process.pid"
+
+handle_start()
+{
+    ./manage_my_process &
+    echo "$!" > "$file"
+}
+handle_kill()
+{
+    sudo pkill -f "./manage_my_process"
+    rm "$file"
+}
+case "$argv" in
+    start) echo "manage_my_process started"
+	handle_start
+	;;
+    stop) echo "manage_my_process stopped"
+	handle_kill
+	;;
+    restart) echo "manage_my_process restarted"
+	handle_kill
+	handle_start
+	;;
+    *) echo "Usage: manage_my_process {start|stop|restart}"
+	;;
+esac
