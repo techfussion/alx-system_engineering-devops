@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Update package lists
+apt-get update -y
+
+# Install nginx web server
+apt-get install nginx -y
+
+# Configure nginx on port 80
+cat <<EOL > /etc/nginx/sites-available/default
+server {
+    listen 80 default_server;
+    server_name _;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+
+    location /custom_404.html {
+        internal;
+        root /usr/share/nginx/html;
+    }
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=dphzDKZa6xk;
+    }
+
+    error_page 404 /custom_404.html;
+    location = /custom_404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+}
+EOL
+
+# Start nginx service
+service nginx start
+
+# Create index.html
+echo "Hello World!" > /usr/share/nginx/html/index.html
+
+# Create custom_404.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+
+# Restart nginx to apply changes
+service nginx restart
